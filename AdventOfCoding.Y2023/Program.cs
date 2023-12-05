@@ -8,7 +8,7 @@ namespace AdventOfCoding.Y2023
 
     static void Main(string[] args)
     {
-      runner.RunTask2<Day04>();
+      runner.RunTask2<Day05>();
       Console.ReadKey();
     }
   }
