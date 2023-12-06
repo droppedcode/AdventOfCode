@@ -65,4 +65,31 @@ public static class StringParseExtensions
 
     return value;
   }
+
+  public static ulong ParseFirstULong(this ReadOnlySpan<char> str, int from = 0)
+  {
+    ulong value = 0;
+
+    for (var i = from; i < str.Length; i++)
+    {
+      if (str[i] == ' ')
+      {
+        from++;
+      }
+      else
+      {
+        break;
+      }
+    }
+
+    for (var i = from; i < str.Length; i++)
+    {
+      if (!char.IsDigit(str[i])) break;
+
+      value *= 10;
+      value += (uint)(str[i] - '0');
+    }
+
+    return value;
+  }
 }
